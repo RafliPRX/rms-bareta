@@ -16,6 +16,18 @@ export default defineConfig({
       '~bootstrap-icons': resolve(import.meta.dirname, 'node_modules/bootstrap-icons')
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        // Bootstrap 5.3 still uses @import internally; silence its deprecation
+        // warnings while keeping warnings for our own SCSS.
+        quietDeps: true,
+        // Bootstrap 5.3 requires @import (native @use lands in Bootstrap 6),
+        // so silence only the `import` deprecation. Other deprecations remain.
+        silenceDeprecations: ['import']
+      }
+    }
+  },
   build: {
     outDir: resolve(import.meta.dirname, 'dist'),
     emptyOutDir: true,
