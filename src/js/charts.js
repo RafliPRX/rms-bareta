@@ -57,12 +57,21 @@ function getCommonOptions() {
   }
 }
 
-// Mini trend data for the dashboard stat-card sparklines
+// Mini trend data for stat-card sparklines. Named metrics (main dashboard)
+// plus reusable trend shapes shared across the dashboard variants.
 const SPARKLINES = {
+  // Main dashboard
   revenue:    [28, 32, 30, 35, 33, 40, 38, 42, 45],
   orders:     [18, 22, 20, 24, 23, 27, 26, 29, 31],
   customers:  [40, 42, 45, 44, 48, 47, 50, 52, 55],
-  conversion: [36, 34, 35, 33, 34, 32, 33, 31, 30]
+  conversion: [36, 34, 35, 33, 34, 32, 33, 31, 30],
+  // Reusable trend shapes
+  up:      [26, 30, 28, 34, 32, 38, 37, 41, 44],
+  climb:   [18, 22, 26, 25, 31, 29, 35, 39, 43],
+  wave:    [30, 34, 31, 36, 32, 37, 34, 38, 35],
+  steady:  [31, 30, 32, 31, 33, 32, 34, 33, 35],
+  down:    [40, 38, 39, 36, 37, 34, 35, 32, 31],
+  dip:     [38, 34, 30, 32, 28, 31, 27, 29, 26]
 }
 
 // Render inline sparklines for any [data-sparkline] element
