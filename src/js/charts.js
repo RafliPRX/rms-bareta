@@ -57,10 +57,63 @@ function getCommonOptions() {
   }
 }
 
+// Mini trend data for the dashboard stat-card sparklines
+const SPARKLINES = {
+  revenue:    [28, 32, 30, 35, 33, 40, 38, 42, 45],
+  orders:     [18, 22, 20, 24, 23, 27, 26, 29, 31],
+  customers:  [40, 42, 45, 44, 48, 47, 50, 52, 55],
+  conversion: [36, 34, 35, 33, 34, 32, 33, 31, 30]
+}
+
+// Render inline sparklines for any [data-sparkline] element
+function initStatSparklines() {
+  const colors = getChartColors()
+
+  document.querySelectorAll('[data-sparkline]').forEach((el) => {
+    const points = SPARKLINES[el.dataset.sparkline]
+    if (!points) return
+
+    el.innerHTML = ''
+    const canvas = document.createElement('canvas')
+    el.appendChild(canvas)
+
+    // "white" variant sits on the coloured hero card; others tint to their metric
+    const onColor = el.dataset.sparkColor === 'white'
+    const stroke = onColor ? 'rgba(255, 255, 255, 0.9)' : (colors[el.dataset.sparkColor] || colors.primary)
+    const fill = onColor ? 'rgba(255, 255, 255, 0.2)' : stroke + '22'
+
+    new Chart(canvas, {
+      type: 'line',
+      data: {
+        labels: points.map((_, i) => i),
+        datasets: [{
+          data: points,
+          borderColor: stroke,
+          backgroundColor: fill,
+          borderWidth: 2,
+          fill: true,
+          tension: 0.4,
+          pointRadius: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, tooltip: { enabled: false } },
+        scales: { x: { display: false }, y: { display: false } },
+        animation: { duration: 400 }
+      }
+    })
+  })
+}
+
 // Initialize all charts on the page
 export function initCharts() {
   const colors = getChartColors()
   const options = getCommonOptions()
+
+  // Stat-card sparklines (dashboard)
+  initStatSparklines()
 
   // Line Chart
   const lineCtx = document.getElementById('lineChart')
