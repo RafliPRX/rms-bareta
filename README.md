@@ -1,6 +1,6 @@
 # Dashio - Bootstrap 5 Admin Dashboard Template
 
-Dashio is a free, open-source admin dashboard template built with Bootstrap 5.3 and Vite 7. It provides a clean, modern foundation for building web applications, admin panels, SaaS products, and internal tools.
+Dashio is a free, open-source admin dashboard template built with Bootstrap 5.3 and Vite 8. It provides a clean, modern foundation for building web applications, admin panels, SaaS products, and internal tools.
 
 [![Live Preview](dashio-preview.png)](https://dashboardpack.github.io/dashio-template/)
 
@@ -8,7 +8,7 @@ Dashio is a free, open-source admin dashboard template built with Bootstrap 5.3 
 
 ## Why Dashio?
 
-- **Modern Stack** - Built with Vite 7 for lightning-fast development and Bootstrap 5.3 for a solid CSS foundation
+- **Modern Stack** - Built with Vite 8 for lightning-fast development and Bootstrap 5.3 for a solid CSS foundation
 - **7 Dashboard Variants** - Pre-built dashboards for Analytics, E-commerce, CRM, Projects, SaaS, and Finance use cases
 - **21 Ready-to-Use Pages** - Everything you need to get started: authentication, settings, tables, forms, charts, and more
 - **Dark/Light Mode** - Native Bootstrap dark mode with system preference detection
@@ -35,10 +35,11 @@ npm run preview  # Preview production build
 
 ## Tech Stack
 
-- **Vite 7** - Build tool with hot module replacement
+- **Vite 8** - Build tool with hot module replacement
 - **Bootstrap 5.3** - CSS framework with native dark mode
 - **Bootstrap Icons 1.13** - 2,000+ icons
 - **Chart.js 4** - Charts and graphs
+- **Inter** - Self-hosted variable font (no external requests)
 - **Sass** - CSS preprocessor
 
 ## Pages Included

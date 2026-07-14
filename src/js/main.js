@@ -5,6 +5,9 @@
 // Import styles (processed by Vite)
 import '../scss/styles.scss'
 
+// Self-hosted Inter variable font (no external requests)
+import '@fontsource-variable/inter'
+
 // Import Bootstrap JS (includes Popper)
 import * as bootstrap from 'bootstrap'
 
